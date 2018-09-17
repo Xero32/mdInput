@@ -72,12 +72,16 @@ compute         temperatureOfMobileAtoms mobileSubstrateAtomsGroup temp
 thermo_style    custom step cpu c_temperatureOfMobileAtoms pe etotal 
 thermo_modify   lost ignore flush yes
 variable        numberOfAtoms equal count(all)
-variable        xCoordinate equal x[v_numberOfAtoms]
-variable        yCoordinate equal y[v_numberOfAtoms]
-variable        zCoordinate equal z[v_numberOfAtoms]
-variable        xVelo equal vx[v_numberOfAtoms]
-variable        yVelo equal vy[v_numberOfAtoms]
-variable        zVelo equal vz[v_numberOfAtoms]
+variable        numberAdAtoms equal count(adAtomGroup)
+variable loopmax equal numberAdAtoms
+variable i loop ${loopmax}
+label IDENTIFICATION
+variable        xCoordinate equal x[i]
+variable        yCoordinate equal y[i]
+variable        zCoordinate equal z[i]
+variable        xVelo equal vx[i]
+variable        yVelo equal vy[i]
+variable        zVelo equal vz[i]
 
 
 # RUN
